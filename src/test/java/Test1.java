@@ -20,7 +20,7 @@ public class Test1 {
         $("#register").click();
 //        $("#Login").shouldHave(text("Register"));
 //        $x("//div[@class='modal-title' and contains(text(),'Register')]").shouldHave(text("Register"));
-        $("#register-username-modal").setValue("Tester1");
+        $("#register-username-modal").setValue("Tester2");
         $("#register-first-modal").setValue("Vadym1");
         $("#register-last-modal").setValue("Los1");
         $("#register-email-modal").setValue("mem1@gmail.com");
