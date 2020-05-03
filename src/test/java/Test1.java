@@ -32,4 +32,21 @@ public class Test1 {
         $x("//a[text()='Logout']").shouldHave(text("Logout"));
         $("#numItemsInCart").shouldHave(text("0 items in cart"));
     }
+
+    @Test(description = "Login")
+
+    public void secondMethodLogin (){
+
+        $x("//a[text()='Logout']").shouldHave(text("Logout")).click();
+        $x("//a[text()='Login']").shouldHave(text("Login")).click();
+        $("#username-modal").setValue("Tester2");
+        $("#password-modal").setValue("autotest");
+
+        $x("//button[.=' Log in\n" + "                            ']").click();
+
+        $x("//a[text()='Logged in as Vadym1 Los1']").shouldHave(text("Logged in as Vadym1 Los1"));
+        $x("//a[text()='Logout']").shouldHave(text("Logout"));
+        $("#numItemsInCart").shouldHave(text("0 items in cart"));
+
+    }
 }
