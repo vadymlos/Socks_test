@@ -17,10 +17,8 @@ public class Test1 {
     String username = "Vadym" + new Date().getTime();
 
     @Test(description = "Registration")
- //   hi
 
     public void firstTestMethod(){
-
 
         open("http://localhost/index.html");
 
@@ -51,12 +49,13 @@ public class Test1 {
 
         $x("//a[text()='Logout']").shouldHave(text("Logout")).click();
         $x("//a[text()='Login']").shouldHave(text("Login")).click();
+        $("#Login").waitUntil(text("Customer login"), 5000);
+        $x("//div[@id='login-modal']//button[@class='btn btn-primary']").waitUntil(visible, 5000);
         $("#username-modal").click();
-        Selenide.sleep(2000);
         $("#username-modal").sendKeys(username);
         $("#password-modal").setValue("autotest");
 
-        $x("//button[.=' Log in\n" + "                            ']").click();
+        $x("//div[@id='login-modal']//button[@class='btn btn-primary']").click();
 
         $x("//a[text()='Logged in as Vadym5 Los5']").shouldHave(text("Logged in as Vadym5 Los5"));
         $x("//a[text()='Logout']").shouldHave(text("Logout"));
