@@ -17,6 +17,7 @@ public class Test1 {
     String username = "Vadym" + new Date().getTime();
 
     @Test(description = "Registration")
+ //   hi
 
     public void firstTestMethod(){
 
