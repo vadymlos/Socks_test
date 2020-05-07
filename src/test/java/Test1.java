@@ -27,7 +27,6 @@ public class Test1 {
         $("#register-modal").waitUntil(text("Register"), 5000);
         $x("//div[@id='register-modal']//button[@class='btn btn-primary']").waitUntil(visible, 5000);
 
-
         $("#register-username-modal").click();
         $("#register-username-modal").sendKeys(username);
         $("#register-first-modal").setValue("Vadym5");
