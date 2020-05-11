@@ -12,18 +12,17 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.CollectionCondition.*;
 
 
-public class Test1 {
+public class RegistrationAndLogin {
 
     String username = "Vadym" + new Date().getTime();
 
-    @Test(description = "Registration")
+    @Test(description = "Registration new user, check that the user is logged in after registration")
 
-    public void firstTestMethod(){
+    public void userCanRegistration(){
 
         open("http://localhost/index.html");
 
         $("#register").click();
-//        $("#register-modal").shouldHave(text("Register"));
         $("#register-modal").waitUntil(text("Register"), 5000);
         $x("//div[@id='register-modal']//button[@class='btn btn-primary']").waitUntil(visible, 5000);
 
@@ -33,7 +32,6 @@ public class Test1 {
         $("#register-last-modal").setValue("Los5");
         $("#register-email-modal").setValue("mem7@gmail.com");
         $("#register-password-modal").setValue("autotest");
-//        $(byText("Tester5")).shouldBe(visible);
 
         $x("//div[@id='register-modal']//button[@class='btn btn-primary']").click();
 
@@ -42,9 +40,9 @@ public class Test1 {
         $("#numItemsInCart").shouldHave(text("0 items in cart"));
     }
 
-    @Test(description = "Login")
+    @Test(description = "Log out, Log in and check that the user is logged in")
 
-    public void secondMethodLogin (){
+    public void userCanLogIn(){
 
         $x("//a[text()='Logout']").shouldHave(text("Logout")).click();
         $x("//a[text()='Login']").shouldHave(text("Login")).click();
