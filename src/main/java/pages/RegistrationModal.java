@@ -10,7 +10,7 @@ public class RegistrationModal {
     private SelenideElement registrationButton = $x("//div[@id='register-modal']//button[@class='btn btn-primary']");
     private SelenideElement usernameField = $("#register-username-modal");
     private SelenideElement firstNameField = $("#register-first-modal");
-    private SelenideElement secondNameField = $("#register-last-modal");
+    private SelenideElement lastNameField = $("#register-last-modal");
     private SelenideElement emailField = $("#register-email-modal");
     private SelenideElement passwordFiled = $("#register-password-modal");
 

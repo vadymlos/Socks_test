@@ -14,7 +14,9 @@ import static com.codeborne.selenide.CollectionCondition.*;
 
 public class RegistrationAndLogin {
 
-    String username = "Vadym" + new Date().getTime();
+    public static final String username = "Vadym" + new Date().getTime();
+
+    @BeforeMethod
 
     @Test(description = "Registration new user, check that the user is logged in after registration")
 
@@ -35,8 +37,10 @@ public class RegistrationAndLogin {
 
         $x("//div[@id='register-modal']//button[@class='btn btn-primary']").click();
 
-        $x("//a[text()='Logged in as Vadym5 Los5']").shouldHave(text("Logged in as Vadym5 Los5"));
-        $x("//a[text()='Logout']").shouldHave(text("Logout"));
+
+        $x("//div[@id='topbar']").shouldHave(text("Logged in as Vadym5 Los5"));
+        $(byText("Logout")).shouldHave(text("Logout"));
+//        $x("//a[text()='Logout']").shouldHave(text("Logout"));
         $("#numItemsInCart").shouldHave(text("0 items in cart"));
     }
 
@@ -44,8 +48,8 @@ public class RegistrationAndLogin {
 
     public void userCanLogIn(){
 
-        $x("//a[text()='Logout']").shouldHave(text("Logout")).click();
-        $x("//a[text()='Login']").shouldHave(text("Login")).click();
+        $(byText("Logout")).shouldHave(text("Logout")).click();
+        $(byText("Login")).shouldHave(text("Login")).click();
         $("#Login").waitUntil(text("Customer login"), 5000);
         $x("//div[@id='login-modal']//button[@class='btn btn-primary']").waitUntil(visible, 5000);
         $("#username-modal").click();
@@ -54,8 +58,8 @@ public class RegistrationAndLogin {
 
         $x("//div[@id='login-modal']//button[@class='btn btn-primary']").click();
 
-        $x("//a[text()='Logged in as Vadym5 Los5']").shouldHave(text("Logged in as Vadym5 Los5"));
-        $x("//a[text()='Logout']").shouldHave(text("Logout"));
+        $x("//div[@id='topbar']").shouldHave(text("Logged in as Vadym5 Los5"));
+        $(byText("Logout")).shouldHave(text("Logout")).shouldHave(text("Logout"));
         $("#numItemsInCart").shouldHave(text("0 items in cart"));
 
     }
