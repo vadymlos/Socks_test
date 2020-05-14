@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="test">
+    <test name="Debug Job">
+        <classes>
+            <class name="RegistrationAndLogin"/>
+        </classes>
+    </test>
+</suite>
