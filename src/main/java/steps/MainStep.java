@@ -16,11 +16,13 @@ public class MainStep {
 
     @Step
     public void openLoginModal(){
+
         mainPage.getLoginButton().click();
     }
 
     @Step
     public void checkUserAfterReg(String name){
+
         mainPage.getLinkToAccount().shouldHave(text(name));
     }
 }
