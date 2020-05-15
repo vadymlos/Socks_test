@@ -1,17 +1,19 @@
 package pages;
+
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
 public class RegistrationModal {
-    private SelenideElement registrationModal = $("#register-modal");
-    private SelenideElement registrationButton = $x("//div[@id='register-modal']//button[@class='btn btn-primary']");
-    private SelenideElement usernameField = $("#register-username-modal");
-    private SelenideElement firstNameField = $("#register-first-modal");
-    private SelenideElement lastNameField = $("#register-last-modal");
-    private SelenideElement emailField = $("#register-email-modal");
-    private SelenideElement passwordFiled = $("#register-password-modal");
+    private final SelenideElement registrationModal = $("#register-modal");
+    private final SelenideElement registrationButton = $x("//div[@id='register-modal']//button[@class='btn btn-primary']");
+    private final SelenideElement usernameField = $("#register-username-modal");
+    private final SelenideElement firstNameField = $("#register-first-modal");
+    private final SelenideElement lastNameField = $("#register-last-modal");
+    private final SelenideElement emailField = $("#register-email-modal");
+    private final SelenideElement passwordFiled = $("#register-password-modal");
 
 }

@@ -2,7 +2,7 @@
 <suite name="test">
     <test name="Debug Job">
         <classes>
-            <class name="RegistrationAndLogin"/>
+            <class name="RegistrationTest"/>
         </classes>
     </test>
 </suite>
