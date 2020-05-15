@@ -1,0 +1,11 @@
+# Default ignored files
+/.idea/workspace.xml
+build/
+allure-results/
+.idea/
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+.idea/**/workspace.xml
