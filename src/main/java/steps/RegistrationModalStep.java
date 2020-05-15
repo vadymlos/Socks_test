@@ -1,6 +1,7 @@
 package steps;
 
 import com.codeborne.selenide.Condition;
+import entity.User;
 import io.qameta.allure.Step;
 import pages.RegistrationModal;
 
@@ -20,14 +21,52 @@ public class RegistrationModalStep {
     }
 
     @Step("Click in Username field in the registration modal and put value")
-    public void clickInUsernameFieldInRegistrationModalAndPutValue(){
+    public void clickInUsernameFieldInRegistrationModalAndPutValue(String value){
         registrationModal.getUsernameField()
-                .click()
-                .setValue();
+                .click();
+        registrationModal.getUsernameField()
+                .setValue(value);
     }
 
-    @Step("Put value in first name field in the registration modal")
-    public void setValueInFirstNameFieldInTheRegistrationModal(List<String> items){
-        registrationModal.getFirstNameField().getItem;
+    @Step("Click in First name field in the registration modal and put value")
+    public void setValueInFirstNameFieldInTheRegistrationModal(String value){
+        registrationModal.getFirstNameField()
+                .click();
+        registrationModal.getFirstNameField()
+                .setValue(value);
+    }
+
+    @Step("Click in Last name field in the registration modal and put value")
+    public void setValueInLastNameFieldInTheRegistrationModal(String value){
+        registrationModal.getLastNameField()
+                .click();
+        registrationModal.getLastNameField()
+                .setValue(value);
+    }
+
+    @Step("Click in Email field in the registration modal and put value")
+    public void setValueInEmailFieldInTheRegistrationModal(String value){
+        registrationModal.getEmailField().click();
+        registrationModal.getEmailField().setValue(value);
+    }
+
+    @Step("Click in Password field in the registration modal and put value")
+    public void setValueInPasswordFieldInTheRegistrationModal(String value){
+        registrationModal.getPasswordFiled().click();
+        registrationModal.getPasswordFiled().setValue(value);
+    }
+
+    @Step("Click on button Register in the registration modal")
+    public void clickOnButtonRegisterInTheRegistrationModal(){
+        registrationModal.getRegistrationButton().click();
+    }
+
+    @Step("Fill registration modal step test user")
+    public void registrationUser(User user){
+        registrationModal.getUsernameField().setValue(user.getUsername());
+        registrationModal.getFirstNameField().setValue(user.getFirstName());
+        registrationModal.getLastNameField().setValue(user.getLastName());
+        registrationModal.getEmailField().setValue(user.getEmail());
+        registrationModal.getPasswordFiled().setValue(user.getPassword());
     }
 }
