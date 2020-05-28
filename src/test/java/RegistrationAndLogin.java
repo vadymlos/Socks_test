@@ -28,10 +28,6 @@ public class RegistrationAndLogin {
         open("index.html");
     }
 
-    @AfterMethod
-    public void after() {
-        Selenide.close();
-    }
 
     @Test(description = "Registration new user, check that the user is logged in after registration")
     public void userCanRegistration() {
