@@ -25,4 +25,24 @@ public class MainStep {
 
         mainPage.getLinkToAccount().shouldHave(text(name));
     }
+
+    @Step("Click on LogIn button on main page")
+    public void clickOnLogInButtonOnMainPage(){
+        mainPage.getLoginButton().waitUntil(Condition.visible.because("LogIn button not visible"), 5000).click();
+    }
+
+    @Step("Click on Log out button on main page")
+    public void clickOnLogOutButtonOnMainPage(){
+        mainPage.getLinkForLogOut().waitUntil(Condition.visible.because("LogOut button not visible"), 5000).click();
+    }
+
+    @Step("Check user cart after registration")
+        public void checkUserCartAfterRegistration(){
+            mainPage.getInCartButton().shouldHave(Condition.text("0 items in cart"));
+
+    }
+//    @Step("Check user firstName and lastName")
+        //   public void checkUserAfterRegistration(String firstName, String lastName){
+//        mainPage.getLinkForLogOut().shouldHave(Condition.text(firstName, lastName));
+
 }

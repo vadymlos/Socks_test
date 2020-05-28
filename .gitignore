@@ -1,14 +1,10 @@
 # Default ignored files
-/.idea/workspace.xml
-<<<<<<< HEAD
-/build
-/allure-results
-=======
+
+build/
+allure-results/
 .idea/
 target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
 pom.xml.next
-.idea/**/workspace.xml
->>>>>>> f7c7eef726ae97855ba1f97c16e375005a94ebd7

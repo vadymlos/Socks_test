@@ -41,10 +41,7 @@ public class RegistrationAndLogin {
         $("#register-last-modal").setValue("Los5");
         $("#register-email-modal").setValue("mem7@gmail.com");
         $("#register-password-modal").setValue("autotest");
-
         $x("//div[@id='register-modal']//button[@class='btn btn-primary']").click();
-
-
         $x("//div[@id='topbar']").shouldHave(text("Logged in as Vadym5 Los5"));
         $(byText("Logout")).shouldHave(text("Logout"));
         $("#numItemsInCart").shouldHave(text("0 items in cart"));
