@@ -20,40 +20,40 @@ public class RegistrationModalStep {
         registrationModal.getRegistrationButton().waitUntil(Condition.visible.because("Registartion button not visible in the registration modal"), 5000);
     }
 
-    @Step("Click in Username field in the registration modal and put value")
-    public void clickInUsernameFieldInRegistrationModalAndPutValue(String value){
+    @Step("Click in Username field in the registration modal and put username")
+    public void clickInUserNameFieldInRegistrationModalAndPutValue(String username){
         registrationModal.getUsernameField()
                 .click();
         registrationModal.getUsernameField()
-                .setValue(value);
+                .setValue(username);
     }
 
-    @Step("Click in First name field in the registration modal and put value")
-    public void setValueInFirstNameFieldInTheRegistrationModal(String value){
+    @Step("Click in First name field in the registration modal and put First name")
+    public void setValueInFirstNameFieldInTheRegistrationModal(String firstName){
         registrationModal.getFirstNameField()
                 .click();
         registrationModal.getFirstNameField()
-                .setValue(value);
+                .setValue(firstName);
     }
 
     @Step("Click in Last name field in the registration modal and put value")
-    public void setValueInLastNameFieldInTheRegistrationModal(String value){
+    public void setValueInLastNameFieldInTheRegistrationModal(String lastName){
         registrationModal.getLastNameField()
                 .click();
         registrationModal.getLastNameField()
-                .setValue(value);
+                .setValue(lastName);
     }
 
     @Step("Click in Email field in the registration modal and put value")
-    public void setValueInEmailFieldInTheRegistrationModal(String value){
+    public void setValueInEmailFieldInTheRegistrationModal(String email){
         registrationModal.getEmailField().click();
-        registrationModal.getEmailField().setValue(value);
+        registrationModal.getEmailField().setValue(email);
     }
 
     @Step("Click in Password field in the registration modal and put value")
-    public void setValueInPasswordFieldInTheRegistrationModal(String value){
+    public void setValueInPasswordFieldInTheRegistrationModal(String password){
         registrationModal.getPasswordFiled().click();
-        registrationModal.getPasswordFiled().setValue(value);
+        registrationModal.getPasswordFiled().setValue(password);
     }
 
     @Step("Click on button Register in the registration modal")
