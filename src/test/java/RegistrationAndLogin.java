@@ -1,5 +1,6 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.Step;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -27,7 +28,6 @@ public class RegistrationAndLogin {
         Selenide.clearBrowserCookies();
         open("index.html");
     }
-
 
     @Test(description = "Registration new user, check that the user is logged in after registration")
     public void userCanRegistration() {
