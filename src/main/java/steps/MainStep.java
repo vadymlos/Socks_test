@@ -39,10 +39,5 @@ public class MainStep {
     @Step("Check user cart after registration")
         public void checkUserCartAfterRegistration(){
             mainPage.getInCartButton().shouldHave(Condition.text("0 items in cart"));
-
     }
-//    @Step("Check user firstName and lastName")
-        //   public void checkUserAfterRegistration(String firstName, String lastName){
-//        mainPage.getLinkForLogOut().shouldHave(Condition.text(firstName, lastName));
-
 }
