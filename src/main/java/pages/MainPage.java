@@ -14,4 +14,5 @@ public class MainPage {
     private SelenideElement linkForLogOut = $(byText("Logout"));
     private SelenideElement inCartButton = $("#numItemsInCart");
     private SelenideElement loginButton = $(byText("Login"));
+    private SelenideElement catalogButton = $x("//div[@id = 'navigation']//li[@id = 'tabCatalogue']");
 }

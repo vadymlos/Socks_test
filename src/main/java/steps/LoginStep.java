@@ -21,6 +21,7 @@ public class LoginStep {
 
     @Step("Click on button LogIn in the login modal")
     public void clickOnButtonLogInInTheLoginModal(){
+
         loginModal.getLogInButton().click();
     }
 
