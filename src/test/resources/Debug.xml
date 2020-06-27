@@ -3,6 +3,8 @@
     <test name="Debug Job">
         <classes>
             <class name="RegistrationTest"/>
+            <class name="AddToCartTest"/>
+            <class name="LoginTest"/>
         </classes>
     </test>
 </suite>

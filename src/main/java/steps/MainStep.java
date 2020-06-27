@@ -40,4 +40,14 @@ public class MainStep {
         public void checkUserCartAfterRegistration(){
             mainPage.getInCartButton().shouldHave(Condition.text("0 items in cart"));
     }
+
+    @Step("Click on catalogue on main menu")
+        public void clickOnCatalogueButton(){
+        mainPage.getCatalogButton().click();
+    }
+
+    @Step("Check that user logged in")
+    public void checkThatLogoutLinkIsVisible(){
+        mainPage.getLinkForLogOut().waitUntil(Condition.visible.because("LogOut button not visible"), 5000);
+    }
 }
