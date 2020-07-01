@@ -4,8 +4,9 @@ import api.UserApiService;
 import com.codeborne.selenide.WebDriverRunner;
 import entity.User;
 import io.qameta.allure.Step;
-import io.restassured.http.Cookie;
+//import io.restassured.http.Cookie;
 import io.restassured.response.Response;
+import org.openqa.selenium.Cookie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +21,10 @@ public class ApiStep {
     }
 
     @Step("Api Login user")
-    public void shouldCanLoginUser(User user){
+    public String  loginUserAndReturnSessionUser(User user){
         Response response2 = userApiService.loginUser(user.getUsername(), user.getPassword());
         sessionUser = response2.getCookie("md.sid");
+        return sessionUser;
     }
 
     @Step("Set user cookie")

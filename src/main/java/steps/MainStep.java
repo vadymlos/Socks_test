@@ -60,8 +60,8 @@ public class MainStep {
     }
 
     @Step("Set cookie")
-    public void setUserCookie(List cookies){
-        WebDriverRunner.getWebDriver().manage().addCookie(cookie1);
-        WebDriverRunner.getWebDriver().manage().addCookie(cookie2);
+    public void setUserCookie(List<Cookie> cookies){
+        WebDriverRunner.getWebDriver().manage().addCookie(cookies.get(0));
+        WebDriverRunner.getWebDriver().manage().addCookie(cookies.get(1));
     }
 }

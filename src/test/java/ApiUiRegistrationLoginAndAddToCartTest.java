@@ -31,8 +31,9 @@ public class ApiUiRegistrationLoginAndAddToCartTest extends BaseTest{
     public void setUp() {
         User user5 = new User(Utils.randomUserName(), "Vadym", "Test", "form@com.com", "123");
         apiStep.shouldCanRegisterNewUser(user5);
-        apiStep.shouldCanLoginUser(user5);
-        mainStep.setUserCookie();
+        sessionUser = apiStep.loginUserAndReturnSessionUser(user5);
+        apiStep.userCookie(sessionUser);
+        mainStep.setUserCookie(apiStep.userCookie(sessionUser));
         Selenide.refresh();
         mainStep.checkThatLogoutLinkIsVisible();
     }
