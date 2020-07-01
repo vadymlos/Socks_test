@@ -1,13 +1,21 @@
 package steps;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
+import org.openqa.selenium.Cookie;
 import pages.MainPage;
 import io.qameta.allure.Step;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.open;
 
 public class MainStep {
     private MainPage mainPage = new MainPage();
+    private String sessionUser;
+    private ApiStep apiStep = new ApiStep();
 
     @Step("Click on Registration button on main page")
     public void clickOnRegistrationButton(){
@@ -49,5 +57,11 @@ public class MainStep {
     @Step("Check that user logged in")
     public void checkThatLogoutLinkIsVisible(){
         mainPage.getLinkForLogOut().waitUntil(Condition.visible.because("LogOut button not visible"), 5000);
+    }
+
+    @Step("Set cookie")
+    public void setUserCookie(List cookies){
+        WebDriverRunner.getWebDriver().manage().addCookie(cookie1);
+        WebDriverRunner.getWebDriver().manage().addCookie(cookie2);
     }
 }

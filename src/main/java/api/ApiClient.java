@@ -1,6 +1,7 @@
 package api;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import entity.User2;
 import okhttp3.OkHttpClient;
 import retrofit.GsonConverterFactory;
@@ -16,16 +17,17 @@ public class ApiClient {
     public UserService userService;
 
     public Retrofit getRetrofit() {
-        OkHttpClient.Builder okhttp = new OkHttpClient.Builder()
+        OkHttpClient okhttp = new OkHttpClient.Builder()
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10, TimeUnit.SECONDS)
-                .readTimeout(10, TimeUnit.SECONDS);
+                .readTimeout(10, TimeUnit.SECONDS)
+        .build();
         init();
-        return retrofit = new Retrofit().Builder()
+        retrofit = new Retrofit.Builder()
                 .baseUrl("https://localhost:80")
                 .client(okhttp)
-                .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .build();
+        return retrofit;
     }
     public void init(){
         UserService userService = retrofit.create(UserService.class);
