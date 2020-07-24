@@ -12,12 +12,12 @@ public class BaseTest {
 
     @BeforeMethod
     public void BeforeMethod(){
-        Configuration.baseUrl = "http://172.32.64.38";
+        Configuration.baseUrl = "http://172.32.128.126";
         Configuration.holdBrowserOpen = true;
         Configuration.browser = SelenoidDriverProvider.class.getName();
         Configuration.fastSetValue = true;
         Configuration.driverManagerEnabled = false;
-        open("/index.html");
+     //   open("/index.html");
         RestAssured.port = 80;
     }
 }

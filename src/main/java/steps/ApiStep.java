@@ -17,7 +17,7 @@ public class ApiStep {
 
     @Step("Api Registration new user")
     public void shouldCanRegisterNewUser(User user){
-        userApiService.registerNewUser(user).then().statusCode(201);
+        userApiService.registerNewUser(user).then().statusCode(200);
     }
 
     @Step("Api Login user")

@@ -33,6 +33,7 @@ public class ApiUiRegistrationLoginAndAddToCartTest extends BaseTest{
         apiStep.shouldCanRegisterNewUser(user5);
         sessionUser = apiStep.loginUserAndReturnSessionUser(user5);
         apiStep.userCookie(sessionUser);
+        open("/index.html");
         mainStep.setUserCookie(apiStep.userCookie(sessionUser));
         Selenide.refresh();
         mainStep.checkThatLogoutLinkIsVisible();

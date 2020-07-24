@@ -7,6 +7,7 @@ import org.openqa.selenium.Cookie;
 import pages.MainPage;
 import io.qameta.allure.Step;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
@@ -61,6 +62,7 @@ public class MainStep {
 
     @Step("Set cookie")
     public void setUserCookie(List<Cookie> cookies){
+        System.out.println(cookies.toString());
         WebDriverRunner.getWebDriver().manage().addCookie(cookies.get(0));
         WebDriverRunner.getWebDriver().manage().addCookie(cookies.get(1));
     }

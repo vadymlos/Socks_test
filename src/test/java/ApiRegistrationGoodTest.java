@@ -28,7 +28,7 @@ public class ApiRegistrationGoodTest {
 
         Response response = userApiService.registerNewUser(user3);
         assertThat(response.statusCode(), equalTo(200));
-        String s = response.body().jsonPath().get("id").toString();
-        assertThat(s, not(isEmptyOrNullString()));
+        String body = response.body().jsonPath().get("id").toString();
+        assertThat(body, not(isEmptyOrNullString()));
     }
 }
