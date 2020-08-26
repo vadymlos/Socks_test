@@ -1,3 +1,5 @@
+package RestAssured;
+
 import api.UserApiService;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -9,7 +11,10 @@ import io.restassured.response.Response;
 import org.openqa.selenium.Cookie;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import steps.*;
+import steps.ui.CartStep;
+import steps.ui.CatalogueStep;
+import steps.ui.MainStep;
+import steps.ui.ProductStep;
 import utils.Utils;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -18,10 +23,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.isEmptyOrNullString;
 import static org.hamcrest.Matchers.not;
 
-public class ApiUiRegistrationLoginAndAddToCartTest extends BaseTest{
+public class MainBrutalApiUiRegistrationAndAddToCartTest {
     private UserApiService userApiService = new UserApiService();
     private String sessionUser;
-    ApiStep apiStep = new ApiStep();
     MainStep mainStep = new MainStep();
     CatalogueStep catalogueStep = new CatalogueStep();
     ProductStep productStep = new ProductStep();
@@ -29,12 +33,33 @@ public class ApiUiRegistrationLoginAndAddToCartTest extends BaseTest{
 
     @BeforeMethod
     public void setUp() {
-        User user5 = new User(Utils.randomUserName(), "Vadym", "Test", "form@com.com", "123");
-        apiStep.shouldCanRegisterNewUser(user5);
-        sessionUser = apiStep.loginUserAndReturnSessionUser(user5);
-        apiStep.userCookie(sessionUser);
-        open("/index.html");
-        mainStep.setUserCookie(apiStep.userCookie(sessionUser));
+        RestAssured.port = 80;
+        User user4 = new User(Utils.randomUserName(), "Vadym", "Test", "form@com.com", "123");
+
+        Response response = userApiService.registerNewUser(user4);
+
+        assertThat(response.statusCode(), equalTo(200));
+        String userId = response.body().jsonPath().get("id").toString();
+        assertThat(userId, not(isEmptyOrNullString()));
+
+        Response response2 = userApiService.loginUser(user4.getUsername(), user4.getPassword());
+
+        assertThat(response2.statusCode(), equalTo(200));
+        sessionUser = response2.getCookie("md.sid");
+        System.out.println(sessionUser);
+
+        Configuration.baseUrl = "http://172.32.128.26";
+        Configuration.holdBrowserOpen = true;
+        Configuration.browser = SelenoidDriverProvider.class.getName();
+        Configuration.fastSetValue = true;
+        Configuration.driverManagerEnabled = false;
+        Cookie cook1 = new Cookie("logged_in", sessionUser.substring(sessionUser.indexOf("%")+3, sessionUser.indexOf(".")));
+        Cookie cook2 = new Cookie("md.sid", sessionUser);
+
+        open("http://172.32.128.26");
+        Selenide.clearBrowserCookies();
+        WebDriverRunner.getWebDriver().manage().addCookie(cook1);
+        WebDriverRunner.getWebDriver().manage().addCookie(cook2);
         Selenide.refresh();
         mainStep.checkThatLogoutLinkIsVisible();
     }

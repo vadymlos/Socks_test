@@ -1,4 +1,4 @@
-package steps;
+package steps.restassured;
 
 import api.UserApiService;
 import com.codeborne.selenide.WebDriverRunner;

@@ -11,4 +11,12 @@ public class ProductSocks {
         this.itemId = itemId;
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "ProductSocks{" +
+                "itemId='" + itemId + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }

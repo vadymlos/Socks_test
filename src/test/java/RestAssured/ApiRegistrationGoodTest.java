@@ -1,3 +1,5 @@
+package RestAssured;
+
 import api.UserApiService;
 import entity.User;
 import io.restassured.RestAssured;

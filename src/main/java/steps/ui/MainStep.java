@@ -1,13 +1,12 @@
-package steps;
+package steps.ui;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.Cookie;
 import pages.MainPage;
 import io.qameta.allure.Step;
+import steps.restassured.ApiStep;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;

@@ -1,4 +1,4 @@
-package steps;
+package steps.ui;
 
 
 import com.codeborne.selenide.Condition;

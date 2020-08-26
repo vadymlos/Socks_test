@@ -2,9 +2,9 @@
 <suite name="test">
     <test name="Debug Job">
         <classes>
-            <class name="RegistrationTest"/>
-            <class name="AddToCartTest"/>
-            <class name="LoginTest"/>
+            <class name="IU.RegistrationTest"/>
+            <class name="IU.AddToCartTest"/>
+            <class name="IU.LoginTest"/>
         </classes>
     </test>
 </suite>

@@ -1,18 +1,15 @@
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
+package IU;
+
 import entity.User;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.MainPage;
-import steps.LoginStep;
-import steps.MainStep;
-import steps.RegistrationModalStep;
+import steps.ui.LoginStep;
+import steps.ui.MainStep;
+import steps.ui.RegistrationModalStep;
 import utils.Utils;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class RegistrationTest extends BaseTest{
+public class RegistrationTest extends BaseTest {
     User user = new User(Utils.randomUserName(), "Vadym", "Test", "form@com.com", "123");
 
     MainStep mainStep = new MainStep();

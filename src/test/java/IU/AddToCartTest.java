@@ -1,15 +1,12 @@
-import entity.User;
+package IU;
+
 import org.testng.annotations.Test;
-import steps.CartStep;
-import steps.CatalogueStep;
-import steps.MainStep;
-import steps.ProductStep;
-import utils.Utils;
+import steps.ui.CartStep;
+import steps.ui.CatalogueStep;
+import steps.ui.MainStep;
+import steps.ui.ProductStep;
 
-import java.nio.channels.FileChannel;
-import java.util.Random;
-
-public class AddToCartTest extends BaseTest{
+public class AddToCartTest extends BaseTest {
     MainStep mainStep = new MainStep();
     CatalogueStep catalogueStep = new CatalogueStep();
     ProductStep productStep = new ProductStep();
