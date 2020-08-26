@@ -22,15 +22,9 @@ public class ApiRetrofitAddToCartTest extends BaseTestForRetrofit {
         String cookieProduct = response.headers().get("Set-Cookie");
         String valueCookieProduct = cookieProduct.substring(cookieProduct.indexOf("=")+1, cookieProduct.indexOf(";"));
         assertThat(cookieProduct, notNullValue());
-//        System.out.println(valueCookieProduct);
+        assertThat(valueCookieProduct, notNullValue());
 
         Response<List<Item>> response2 = apiStep2Retro.checkCartWithProduct();
         assertThat(response2.code(), is(200));
-//        Item productAvailable = response2.body().get();
-//        assertThat(productAvailable, notNullValue());
-
-//        String quantity = productAvailable.
-
-//        System.out.println(productAvailable.getQuantity());
     }
 }

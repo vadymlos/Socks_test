@@ -41,11 +41,6 @@ public class RegistrationAndAddToCartTest extends BaseTestForRetrofit{
                 .baseUrl("http://localhost/")
                 .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))
                 .build();
-//        Response<ResponseBody> response2 = apiStep2Retro.loginUser(client);
-//        assertThat(response2.code(), is(200));
-//        String userCookie = response2.headers().get("Set-Cookie");
-//        sessionUser = userCookie.substring(userCookie.indexOf("=")+1, userCookie.indexOf(";"));
-//        System.out.println(sessionUser);
     }
 
     @Test(description = "Login user add product to cart")
@@ -54,9 +49,6 @@ public class RegistrationAndAddToCartTest extends BaseTestForRetrofit{
 
         Response<ResponseBody> response3 = apiStep2Retro.canAddProductToCartForLoginUser(productSocks, sessionUser);
         assertThat(response3.code(), is(201));
-//        String cookieProduct = response3.headers().get("Set-Cookie");
-//        String valueCookieProduct = cookieProduct.substring(cookieProduct.indexOf("=")+1, cookieProduct.indexOf(";"));
-//        assertThat(valueCookieProduct, notNullValue());
 
         Response<List<Item>> response4 = apiStep2Retro.checkCartWithProduct();
         assertThat(response4.code(), is(200));

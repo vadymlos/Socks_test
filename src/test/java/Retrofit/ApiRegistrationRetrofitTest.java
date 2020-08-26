@@ -27,10 +27,8 @@ public class ApiRegistrationRetrofitTest {
                 .build();
         retrofit = new Retrofit.Builder()
                 .baseUrl("http://localhost:80")
- //               .client(okhttp).addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()))
                 .build();
         UserService userService = retrofit.create(UserService.class);
- //       apiClient.userService.registerNewUser(Utils.randomUserName(), "Vadym", "Test", "form@com.com", "123").execute().body();
         System.out.println(apiClient.userService.registerNewUser(user2).execute().body());
     }
 

@@ -53,7 +53,6 @@ public class RegistrationAndLogin {
     public void userCanLogIn() {
 
         userCanRegistration2();
-//        $(byText("Logout")).shouldHave(text("Logout")).click();
         $(byText("Login")).shouldHave(text("Login")).click();
         $("#Login").waitUntil(text("Customer login"), 5000);
         $x("//div[@id='login-modal']//button[@class='btn btn-primary']").waitUntil(visible, 5000);

@@ -23,6 +23,5 @@ public class BaseTestForRetrofit {
                 .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))
                 .build();
         apiStep2Retro = new ApiStep2Retro(retrofit);
-//        System.out.println(retrofit.create(UserServiceVersionTwo.class).registerNewUser(user2).execute());
     }
 }

@@ -30,14 +30,12 @@ public class ApiAddToCartTest {
     public void testCanAddToCartNotLoginUser() {
         ProductSocks productSocks = new ProductSocks("itemId", "3395a43e-2d88-40de-b95f-e00e1502085b");
         Response response = userApiService.addToCart(productSocks);
-
         assertThat(response.statusCode(), equalTo(201));
         String idOrder = response.body().htmlPath().get("id").toString();
         String cookieValue = response.getCookie("md.sid");
         assertThat(idOrder, not(isEmptyOrNullString()));
 
         Response response1 = userApiService.checkCart(cookieValue);
-
         assertThat(response1.statusCode(), equalTo(200));
         String product = response1.body().jsonPath().get("quantity").toString();
         assertThat(product, not(isEmptyOrNullString()));
