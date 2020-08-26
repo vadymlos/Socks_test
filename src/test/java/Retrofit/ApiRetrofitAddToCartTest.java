@@ -26,5 +26,6 @@ public class ApiRetrofitAddToCartTest extends BaseTestForRetrofit {
 
         Response<List<Item>> response2 = apiStep2Retro.checkCartWithProduct();
         assertThat(response2.code(), is(200));
+        assertThat(response2.body().get(0).getItemId(), is("3395a43e-2d88-40de-b95f-e00e1502085b"));
     }
 }
