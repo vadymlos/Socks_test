@@ -37,7 +37,6 @@ public class ApiAddToCartTest {
         assertThat(idOrder, not(isEmptyOrNullString()));
 
         Response response1 = userApiService.checkCart(cookieValue);
-
         assertThat(response1.statusCode(), equalTo(200));
         String product = response1.body().jsonPath().get("quantity").toString();
         assertThat(product, not(isEmptyOrNullString()));
