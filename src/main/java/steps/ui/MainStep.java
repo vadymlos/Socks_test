@@ -1,7 +1,9 @@
 package steps.ui;
 
+import api.MyCookieJar;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
+import okhttp3.OkHttpClient;
 import org.openqa.selenium.Cookie;
 import pages.MainPage;
 import io.qameta.allure.Step;
@@ -64,5 +66,11 @@ public class MainStep {
         System.out.println(cookies.toString());
         WebDriverRunner.getWebDriver().manage().addCookie(cookies.get(0));
         WebDriverRunner.getWebDriver().manage().addCookie(cookies.get(1));
+    }
+
+    @Step("Set cookie retro")
+    public void setUserCookieOk(MyCookieJar myCookieJar){
+        System.out.println(myCookieJar.toString());
+        WebDriverRunner.getWebDriver().manage().addCookie(myCookieJar.getCookies().get(0));
     }
 }
